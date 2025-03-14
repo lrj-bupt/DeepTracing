@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package nowtracing.v1;
+option java_multiple_files = true;
+
+option java_package = "network.language.tracing";
+
+message SegmentObject {
+    string traceId = 1;
+    string traceSegmentId = 2;
+    repeated SpanObject spans = 3;
+    string service = 4;
+    string serviceInstance = 5;
+}
+
+message SpanObject {
+    int32 spanId = 1;
+    int32 parentSpanId = 2;
+    int64 startTime = 3;
+    int64 endTime = 4;
+    string operationName = 5;
+    int32 componentId = 6;
+}
+
+enum SpanLayer {
+    Unknown = 0;
+    Database = 1;
+    RPC = 2;
+    Http = 4;
+    MQ = 5;
+    Cache = 6;
+}

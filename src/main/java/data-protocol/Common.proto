@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package nowtracing.v1;
+option java_multiple_files = true;
+
+option java_package = "network.language.common";
+
+
+message CPU {
+    double usagePercent = 2;
+}
